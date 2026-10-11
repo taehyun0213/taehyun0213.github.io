@@ -1,0 +1,7 @@
+{
+  "name": "taehyun-kim-homepage",
+  "private": true,
+  "scripts": {
+    "build": "python3 build.py --output dist"
+  }
+}
