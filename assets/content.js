@@ -1,0 +1,703 @@
+window.SITE_CONTENT = {
+  "profile": {
+    "name": "Taehyun Kim",
+    "korean_name": "김태현",
+    "email": "taehyun.kim@skku.edu",
+    "scholar": "https://scholar.google.com/citations?user=_RVLdyMAAAAJ&hl=en",
+    "faculty": "https://coe.skku.edu/eng_coe/intro/faculty_edu.do?mode=view&perId=LZStrEwcQbA8gRgjAngegG4GoCcAXAIgEwFoAqAmgKZEwB2A5gLw1A+",
+    "portrait": "assets/taehyun-kim.png",
+    "role": {
+      "en": "Assistant Professor",
+      "ko": "조교수"
+    },
+    "department": {
+      "en": "Department of Education",
+      "ko": "사범대학 교육학과"
+    },
+    "university": {
+      "en": "Sungkyunkwan University",
+      "ko": "성균관대학교"
+    },
+    "location": {
+      "en": "Seoul, South Korea",
+      "ko": "대한민국 서울"
+    },
+    "headline": {
+      "en": "How do we learn through our bodies, with AI, and in immersive worlds?",
+      "ko": "몸으로 경험하고, AI와 대화하며, 몰입하는 공간에서 우리는 어떻게 배울까요?"
+    },
+    "intro": {
+      "en": "I design and study learning environments where gestures, dialogue, and immersive experiences help learners make sense of complex ideas.",
+      "ko": "제스처, 대화, 몰입형 경험을 통해 학습자가 복잡한 개념을 이해할 수 있는 학습환경을 설계하고 연구합니다."
+    },
+    "bio": [
+      {
+        "en": "I am a learning scientist and Assistant Professor in the Department of Education at Sungkyunkwan University. My research brings together embodied cognition, immersive learning, artificial intelligence, and multimodal learning analytics.",
+        "ko": "성균관대학교 교육학과 조교수이자 학습과학 연구자입니다. 체화된 인지, 몰입형 학습, 인공지능, 멀티모달 학습분석을 연결하는 연구를 수행하고 있습니다."
+      },
+      {
+        "en": "I investigate how learners use their bodies, language, and digital tools to understand scientific ideas, collaborate, and exercise agency. Working with teachers and interdisciplinary collaborators, I develop learning simulations and study their use in authentic educational settings through design-based research and mixed methods.",
+        "ko": "학습자가 신체, 언어, 디지털 도구를 활용해 과학 개념을 이해하고 협력하며 학습 주체성을 발휘하는 과정을 탐구합니다. 교사 및 다양한 분야의 연구자와 협력하여 학습 시뮬레이션을 개발하고, 설계기반연구와 혼합연구방법으로 실제 교육현장에서의 학습을 분석합니다."
+      },
+      {
+        "en": "I earned my Ph.D. in Curriculum & Instruction at the University of Illinois Urbana-Champaign in the Digital Environments for Learning, Teaching, and Agency (DELTA) program, advised by Robb Lindgren and Mike Tissenbaum. Before joining SKKU, I was an Assistant Professor at Utah State University and a Postdoctoral Research Associate at the University of Florida.",
+        "ko": "미국 일리노이대학교 어바나–샴페인에서 교육과정 및 교수학습 분야의 박사학위를 취득했습니다. DELTA 프로그램에서 Robb Lindgren과 Mike Tissenbaum 교수의 지도를 받았으며, 성균관대학교 부임 전에는 유타주립대학교 조교수와 플로리다대학교 박사후연구원으로 재직했습니다."
+      }
+    ]
+  },
+  "research": [
+    {
+      "title": {
+        "en": "Embodied & immersive learning",
+        "ko": "체화된 인지와 몰입형 학습"
+      },
+      "text": {
+        "en": "How can gestures and purposeful interaction in VR and AR help learners understand ideas that are difficult to see or experience?",
+        "ko": "직접 보기 어려운 개념을 이해하도록 VR·AR 속 제스처와 의미 있는 상호작용을 어떻게 설계할 수 있을까요?"
+      }
+    },
+    {
+      "title": {
+        "en": "Human–AI learning",
+        "ko": "인간–AI 상호작용과 학습"
+      },
+      "text": {
+        "en": "How should conversational and embodied AI agents respond to learners while supporting explanation, questioning, and agency?",
+        "ko": "대화형·체화형 AI 에이전트는 학습자의 설명, 질문, 주체성을 지원하기 위해 어떻게 반응해야 할까요?"
+      }
+    },
+    {
+      "title": {
+        "en": "Multimodal learning analytics",
+        "ko": "멀티모달 학습분석"
+      },
+      "text": {
+        "en": "What can movement, gaze, interaction logs, and dialogue reveal about the learning process when interpreted in context?",
+        "ko": "움직임, 시선, 상호작용 로그, 대화를 학습 맥락과 함께 해석하면 학습과정에 관해 무엇을 알 수 있을까요?"
+      }
+    },
+    {
+      "title": {
+        "en": "Collaboration, emotion & agency",
+        "ko": "협력, 정서, 학습 주체성"
+      },
+      "text": {
+        "en": "How do emotions, shared representations, and social interaction shape collaborative reasoning in games and learning communities?",
+        "ko": "게임과 학습 공동체에서 정서, 공유된 표상, 사회적 상호작용은 협력적 추론에 어떤 영향을 미칠까요?"
+      }
+    }
+  ],
+  "featured_project": {
+    "name": "ChromosoME",
+    "eyebrow": {
+      "en": "Featured project · Virtual reality",
+      "ko": "대표 프로젝트 · 가상현실"
+    },
+    "headline": {
+      "en": "Understanding cell division from the inside.",
+      "ko": "세포 안에서 경험하며 이해하는 세포분열."
+    },
+    "text": {
+      "en": "ChromosoME is a VR simulation that lets learners participate in mitosis through purposeful hand interactions. Developed in collaboration with high school teachers, it connects biological mechanisms to actions such as aligning and separating chromosomes.",
+      "ko": "ChromosoME는 의미 있는 손동작을 통해 유사분열 과정에 참여하는 VR 시뮬레이션입니다. 고등학교 교사들과 협력하여 개발했으며, 염색체 정렬과 분리 등의 행동을 생물학적 기제와 연결합니다."
+    },
+    "extension": {
+      "en": "Current work extends the simulation with conversational AI companions and multimodal interaction data to study learners’ questions, explanations, and activity. A related line of research examines how the order of paper-based and VR materials shapes learning and the interpretation of interaction logs.",
+      "ko": "현재는 대화형 AI 동반자와 멀티모달 상호작용 데이터를 연결하여 학습자의 질문, 설명, 활동을 연구하고 있습니다. 또한 종이 학습자료와 VR의 학습 순서가 학습과 상호작용 로그 해석에 미치는 영향을 탐구합니다."
+    },
+    "role": {
+      "en": "Principal investigator & lead developer",
+      "ko": "연구책임자 및 주요 개발자"
+    },
+    "image": "assets/chromosome-vr.jpg",
+    "image_alt": {
+      "en": "ChromosoME project montage showing the cell-division VR simulation and a learner wearing a headset.",
+      "ko": "세포분열 VR 시뮬레이션 화면과 헤드셋을 착용한 학습자를 보여주는 ChromosoME 프로젝트 이미지."
+    },
+    "credit": {
+      "en": "Project image: Embodied and Immersive Technologies Group, University of Illinois Urbana-Champaign.",
+      "ko": "프로젝트 이미지: 일리노이대학교 어바나–샴페인 Embodied and Immersive Technologies Group."
+    },
+    "url": "https://emit.education.illinois.edu/projects/chromosome",
+    "tags": [
+      "VR",
+      "Hand tracking",
+      "Science learning",
+      "AI companions"
+    ]
+  },
+  "projects": [
+    {
+      "name": {
+        "en": "Embodied AI companions",
+        "ko": "체화형 AI 학습 동반자"
+      },
+      "category": {
+        "en": "Current research",
+        "ko": "진행 중인 연구"
+      },
+      "text": {
+        "en": "Designing AI avatars that connect dialogue and content-relevant gestures with learners’ actions in immersive science environments. The work examines learner questioning, explanations, attention, and the design of adaptive support.",
+        "ko": "몰입형 과학 학습환경에서 대화와 내용에 맞는 제스처를 학습자의 행동과 연결하는 AI 아바타를 설계합니다. 학습자의 질문, 설명, 주의와 적응적 지원의 설계를 연구합니다."
+      },
+      "tags": [
+        "AI",
+        "VR",
+        "Gesture"
+      ],
+      "url": ""
+    },
+    {
+      "name": {
+        "en": "The Mountain Hike Challenge",
+        "ko": "The Mountain Hike Challenge"
+      },
+      "category": {
+        "en": "Collaborative prototype · Middle school science",
+        "ko": "공동연구 프로토타입 · 중학교 과학"
+      },
+      "text": {
+        "en": "A teacher-informed VR prototype for middle school physiology. This project connects immersive activity with ideas about human body systems and brings classroom learning needs into the design of science simulations.",
+        "ko": "교사와의 협력을 통해 개발한 중학교 생리학 VR 프로토타입입니다. 몰입형 활동을 인체 시스템에 관한 개념과 연결하고, 실제 교실의 학습 요구를 과학 시뮬레이션 설계에 반영합니다."
+      },
+      "tags": [
+        "VR",
+        "Science learning",
+        "Teacher collaboration"
+      ],
+      "url": ""
+    },
+    {
+      "name": {
+        "en": "DataSandbox",
+        "ko": "DataSandbox"
+      },
+      "category": {
+        "en": "Collaborative research · Statistical sensemaking",
+        "ko": "공동연구 · 통계적 의미 구성"
+      },
+      "text": {
+        "en": "A hands-on platform for exploring statistical ideas by manipulating values, samples, and distributions, with visual feedback and an optional AI coach. My collaborative research interests include how interaction traces reveal learners’ reasoning and how learners revise their predictions. A related narrative RPG prototype is being developed by collaborators.",
+        "ko": "값, 표본, 분포를 직접 조작하며 통계 개념을 탐구하는 플랫폼으로, 시각적 피드백과 선택적으로 이용하는 AI 코치를 제공합니다. 공동연구에서는 상호작용 기록을 통한 학습자의 추론 이해와 예측 수정 과정에 관심을 두고 있습니다. 관련 이야기형 RPG 프로토타입은 공동연구자가 개발 중입니다."
+      },
+      "tags": [
+        "Statistics",
+        "Interactive simulations",
+        "AI coaching"
+      ],
+      "url": ""
+    },
+    {
+      "name": {
+        "en": "CEASAR",
+        "ko": "CEASAR"
+      },
+      "category": {
+        "en": "Collaborative project · Astronomy",
+        "ko": "공동연구 · 천문학"
+      },
+      "text": {
+        "en": "Connections of Earth and Sky with Augmented Reality explores small-group astronomy learning across immersive headsets and tablets. My work investigates how shared views, gestures, and dialogue support collaborative problem solving.",
+        "ko": "Connections of Earth and Sky with Augmented Reality는 몰입형 헤드셋과 태블릿을 활용한 소집단 천문학 학습을 탐구합니다. 공유된 시점, 제스처, 대화가 협력적 문제해결을 지원하는 방식을 연구했습니다."
+      },
+      "tags": [
+        "AR / VR",
+        "Collaboration",
+        "Astronomy"
+      ],
+      "url": "https://emit.education.illinois.edu/projects/ceasar"
+    },
+    {
+      "name": {
+        "en": "ImPRESS",
+        "ko": "ImPRESS"
+      },
+      "category": {
+        "en": "Collaborative project · Immersive 3D drawing",
+        "ko": "공동연구 · 몰입형 3D 드로잉"
+      },
+      "text": {
+        "en": "Immersive Production of Representations Exploring Science Sketching is a VR environment where learners draw, manipulate, and resize three-dimensional scientific representations. This collaborative project connects freehand sketching with immersive spatial interaction and access across VR and non-VR devices.",
+        "ko": "Immersive Production of Representations Exploring Science Sketching은 학습자가 3차원 과학적 표상을 그리고, 조작하고, 크기를 바꿀 수 있는 VR 학습환경입니다. 자유로운 스케치와 몰입형 공간 상호작용을 연결하며, VR과 비VR 기기에서 함께 접근할 수 있는 공동연구 프로젝트입니다."
+      },
+      "tags": [
+        "VR",
+        "3D drawing",
+        "Learning design"
+      ],
+      "url": "https://emit.education.illinois.edu/projects/impress"
+    },
+    {
+      "name": {
+        "en": "Gesture-based STEM visualizations",
+        "ko": "제스처 기반 STEM 시각화"
+      },
+      "category": {
+        "en": "Collaborative project · Biochemistry",
+        "ko": "공동연구 · 생화학"
+      },
+      "text": {
+        "en": "Studying how gesture-controlled simulations and haptic technologies help students interpret dynamic scientific representations, including biochemistry and dynamic equilibrium.",
+        "ko": "제스처로 조작하는 시뮬레이션과 햅틱 기술이 생화학과 동적 평형 등 변화하는 과학적 표상을 해석하는 데 어떻게 도움을 주는지 탐구합니다."
+      },
+      "tags": [
+        "Gesture",
+        "Haptics",
+        "STEM"
+      ],
+      "url": "https://doi.org/10.1145/3613905.3650816"
+    },
+    {
+      "name": {
+        "en": "City Settlers",
+        "ko": "City Settlers"
+      },
+      "category": {
+        "en": "Collaborative project · Serious games",
+        "ko": "공동연구 · 기능성 게임"
+      },
+      "text": {
+        "en": "A whole-class simulation where student groups build and sustain cities. My research examines collaborative reasoning, complex-systems understanding, and when anger supports or disrupts productive discussion.",
+        "ko": "학생들이 모둠별로 도시를 만들고 유지하는 학급 단위 시뮬레이션입니다. 협력적 추론과 복잡계 이해, 그리고 분노가 생산적인 토론을 촉진하거나 방해하는 조건을 연구합니다."
+      },
+      "tags": [
+        "Games",
+        "Emotion",
+        "Complex systems"
+      ],
+      "url": "https://doi.org/10.1007/s11412-025-09459-2"
+    },
+    {
+      "name": {
+        "en": "ALTER-Math & AI teachable agents",
+        "ko": "ALTER-Math와 AI 가르침받는 에이전트"
+      },
+      "category": {
+        "en": "Collaborative project · AI in education",
+        "ko": "공동연구 · 교육용 AI"
+      },
+      "text": {
+        "en": "Research on learning by teaching with AI agents in mathematics. This work examines interaction patterns, the relationship between learner agency and AI authority, and the design of equitable AI-supported learning.",
+        "ko": "수학에서 AI 에이전트를 가르치며 배우는 학습을 연구합니다. 학습자 주체성과 AI의 권위 사이의 관계, 상호작용 패턴, 공정한 AI 지원 학습의 설계를 탐구합니다."
+      },
+      "tags": [
+        "AI",
+        "Mathematics",
+        "Learner agency"
+      ],
+      "url": "https://doi.org/10.1111/bjet.70038"
+    }
+  ],
+  "publications": [
+    {
+      "year": 2026,
+      "type": "journal",
+      "title": "Unveiling interaction patterns between students and generative AI teachable agent: Focusing on students’ agency and AI agents’ authority",
+      "authors": "Xing, W., Kim, T., Song, Y., Li, H., Li, C., & Kim, J.",
+      "venue": "British Journal of Educational Technology, 57(4), 896–923",
+      "url": "https://doi.org/10.1111/bjet.70038",
+      "note": ""
+    },
+    {
+      "year": 2026,
+      "type": "journal",
+      "title": "Understanding when anger becomes productive or destructive in collaborative educational games",
+      "authors": "Kim, T., & Tissenbaum, M.",
+      "venue": "International Journal of Computer-Supported Collaborative Learning, 21, 173–204",
+      "url": "https://doi.org/10.1007/s11412-025-09459-2",
+      "note": "First published online in 2025"
+    },
+    {
+      "year": 2026,
+      "type": "journal",
+      "title": "Why do students leave instructional videos? Understanding students’ in-video dropout behavior in a large online math learning platform",
+      "authors": "Xing, W., Liu, Z., Kim, T., & Song, Y.",
+      "venue": "Distance Education, 47(2), 268–291",
+      "url": "https://doi.org/10.1080/01587919.2025.2579792",
+      "note": "First published online in 2025"
+    },
+    {
+      "year": 2026,
+      "type": "journal",
+      "title": "Making the ‘mathematics register’ accessible to students: an exploratory study of two teachers’ discourse in an online lesson on polynomial expressions",
+      "authors": "Xing, W., Fang, Z., Zhang, H., Kamiyama, T., Liu, Z., & Kim, T.",
+      "venue": "Language and Education, 40(2), 512–535",
+      "url": "https://doi.org/10.1080/09500782.2025.2542861",
+      "note": "First published online in 2025"
+    },
+    {
+      "year": 2026,
+      "type": "conference",
+      "title": "Understanding Attention Patterns toward Embodied AI Agents in Immersive Learning Environments",
+      "authors": "Kim, T., Hwang, S. M., Roy, T., & Li, C.",
+      "venue": "CHI 2026 Extended Abstracts, Article 700, 1–5",
+      "url": "https://doi.org/10.1145/3772363.3798593",
+      "note": ""
+    },
+    {
+      "year": 2026,
+      "type": "conference",
+      "title": "Does more exploration mean better learning? Rethinking VR log data through instructional sequences",
+      "authors": "Kim, T., Liu, Z., Xing, W., & Roy, T.",
+      "venue": "International Conference of the Learning Sciences (ICLS), 1438–1442",
+      "url": "https://doi.org/10.22318/icls2026.252471",
+      "note": ""
+    },
+    {
+      "year": 2026,
+      "type": "conference",
+      "title": "Sequencing immersive simulations for cybersecurity: Task complexity and efficiency",
+      "authors": "Kim, T., Oh, H., Shaky, M., McNair, J., Guo, R., Xing, W., & Ray, S.",
+      "venue": "International Conference of the Learning Sciences (ICLS), 2795–2797",
+      "url": "https://doi.org/10.22318/icls2026.227281",
+      "note": ""
+    },
+    {
+      "year": 2026,
+      "type": "conference",
+      "title": "Bidirectional Co-regulation Mechanisms Between Teachable Agents and Students: Authority-Agency Evolutionary Characteristics and Their Link to Learning Gains Through Time Series Dynamics",
+      "authors": "Li, H., Xing, W., Li, C., Kim, T., Song, Y., & Kim, J.",
+      "venue": "Artificial Intelligence in Education (AIED), 200–214",
+      "url": "https://doi.org/10.1007/978-3-032-29763-1_14",
+      "note": ""
+    },
+    {
+      "year": 2025,
+      "type": "journal",
+      "title": "Leveraging contrastive learning to improve group and individual fairness in predictive analytics for online learning",
+      "authors": "Liu, Z., Xing, W., Jiang, Y., Li, C., Kim, T., & Li, H.",
+      "venue": "Journal of Computing in Higher Education, 37(4), 1341–1370",
+      "url": "https://doi.org/10.1007/s12528-025-09468-y",
+      "note": ""
+    },
+    {
+      "year": 2025,
+      "type": "journal",
+      "title": "Investigating the behaviors of core and periphery students in an asynchronous online discussion community using network analysis and topic modeling",
+      "authors": "Xing, W., Li, H., Kim, T., Zhu, W., & Song, Y.",
+      "venue": "Education and Information Technologies, 30, 5561–5588",
+      "url": "https://doi.org/10.1007/s10639-024-13038-7",
+      "note": "First published online in 2024"
+    },
+    {
+      "year": 2025,
+      "type": "conference",
+      "title": "Emotional Dynamics in Asynchronous Math Discussions: Analyzing the Impact of Negative Emotions on Learning Outcomes",
+      "authors": "Kim, T., Liu, Z., Xing, W., Li, H., & Oh, H.",
+      "venue": "International Conference of the Learning Sciences (ICLS), 781–789",
+      "url": "https://doi.org/10.22318/icls2025.183564",
+      "note": ""
+    },
+    {
+      "year": 2025,
+      "type": "conference",
+      "title": "Log Data as a Window into Learning: Embodied Interactions in a Virtual Reality Simulation",
+      "authors": "Kim, T., Planey, J., & Xing, W.",
+      "venue": "Immersive Learning Research—Academic (iLRN), 147–153",
+      "url": "https://doi.org/10.56198/99wyvd25",
+      "note": "Best Extended Abstract Nominee"
+    },
+    {
+      "year": 2024,
+      "type": "journal",
+      "title": "Can you see Orion? Knowledge construction and collaborative discourse while problem solving with virtual reality",
+      "authors": "Planey, J., Kim, T., Mercier, E., & Lindgren, R.",
+      "venue": "Interactive Learning Environments, 32(9), 5822–5835",
+      "url": "https://doi.org/10.1080/10494820.2023.2239290",
+      "note": "First published online in 2023"
+    },
+    {
+      "year": 2024,
+      "type": "conference",
+      "title": "Beyond the Screen: Gestural Perspective-Taking with a Biochemistry Simulation",
+      "authors": "Kim, T., Nisar, H., Lindgren, R., Zhang, J., Tang, X., Lira, M., & Talhan, A.",
+      "venue": "CHI 2024 Extended Abstracts, Article 58, 1–6",
+      "url": "https://doi.org/10.1145/3613905.3650816",
+      "note": ""
+    },
+    {
+      "year": 2024,
+      "type": "conference",
+      "title": "Paper or Virtual Reality First? The Impact of Material Sequence on Science Learning Outcomes",
+      "authors": "Kim, T.",
+      "venue": "International Conference of the Learning Sciences (ICLS), 1666–1669",
+      "url": "https://doi.org/10.22318/icls2024.456545",
+      "note": ""
+    },
+    {
+      "year": 2023,
+      "type": "journal",
+      "title": "Theory-Driven Design in Metaverse Virtual Reality Learning Environments: Two Illustrative Cases",
+      "authors": "Kim, T., Planey, J., & Lindgren, R.",
+      "venue": "IEEE Transactions on Learning Technologies, 16(6), 1141–1153",
+      "url": "https://doi.org/10.1109/TLT.2023.3307211",
+      "note": ""
+    },
+    {
+      "year": 2023,
+      "type": "conference",
+      "title": "Comparing Virtual and Augmented Reality: Learning and Interaction Effects in Astronomy Classrooms",
+      "authors": "Kim, T., Planey, J., & Lindgren, R.",
+      "venue": "International Conference of the Learning Sciences (ICLS), 1126–1129",
+      "url": "https://doi.org/10.22318/icls2023.398453",
+      "note": ""
+    },
+    {
+      "year": 2021,
+      "type": "journal",
+      "title": "Procedural Collaboration in Educational Games: Supporting Complex System Understandings in Immersive Whole Class Simulations",
+      "authors": "Kumar, V., Tissenbaum, M. B., & Kim, T.",
+      "venue": "Communication Studies, 72(6), 994–1016",
+      "url": "https://doi.org/10.1080/10510974.2021.2011363",
+      "note": ""
+    },
+    {
+      "year": 2021,
+      "type": "conference",
+      "title": "Developing an In-Application Shared View Metric to Capture Collaborative Learning in a Multi-Platform Astronomy Simulation",
+      "authors": "Diederich, M., Kang, J., Kim, T., & Lindgren, R.",
+      "venue": "Learning Analytics and Knowledge (LAK), 173–183",
+      "url": "https://doi.org/10.1145/3448139.3448156",
+      "note": ""
+    }
+  ],
+  "appointments": [
+    {
+      "date": "2026–present",
+      "title": {
+        "en": "Assistant Professor",
+        "ko": "조교수"
+      },
+      "place": {
+        "en": "Department of Education, Sungkyunkwan University",
+        "ko": "성균관대학교 사범대학 교육학과"
+      }
+    },
+    {
+      "date": "2026–present",
+      "title": {
+        "en": "Adjunct / Assistant Professor",
+        "ko": "Adjunct / Assistant Professor"
+      },
+      "place": {
+        "en": "Instructional Technology & Learning Sciences, Utah State University",
+        "ko": "유타주립대학교 Instructional Technology & Learning Sciences"
+      }
+    },
+    {
+      "date": "2025–2026",
+      "title": {
+        "en": "Assistant Professor",
+        "ko": "조교수"
+      },
+      "place": {
+        "en": "Instructional Technology & Learning Sciences, Utah State University",
+        "ko": "유타주립대학교 Instructional Technology & Learning Sciences"
+      }
+    },
+    {
+      "date": "2024–2025",
+      "title": {
+        "en": "Postdoctoral Research Associate",
+        "ko": "박사후연구원"
+      },
+      "place": {
+        "en": "University of Florida",
+        "ko": "플로리다대학교"
+      }
+    }
+  ],
+  "education": [
+    {
+      "date": "2024",
+      "title": {
+        "en": "Ph.D., Curriculum & Instruction",
+        "ko": "박사, 교육과정 및 교수학습"
+      },
+      "place": {
+        "en": "University of Illinois Urbana-Champaign · DELTA program",
+        "ko": "일리노이대학교 어바나–샴페인 · DELTA 프로그램"
+      }
+    },
+    {
+      "date": "2019",
+      "title": {
+        "en": "M.Ed., Education",
+        "ko": "석사, 교육학"
+      },
+      "place": {
+        "en": "Sungkyunkwan University",
+        "ko": "성균관대학교"
+      }
+    },
+    {
+      "date": "2017",
+      "title": {
+        "en": "B.A., Educational Technology",
+        "ko": "학사, 교육공학"
+      },
+      "place": {
+        "en": "Andong National University",
+        "ko": "국립안동대학교"
+      }
+    }
+  ],
+  "service": [
+    {
+      "en": "ECR Editorial Board, British Journal of Educational Technology (since 2026)",
+      "ko": "British Journal of Educational Technology ECR 편집위원 (2026–)"
+    },
+    {
+      "en": "Finance Committee, International Society of the Learning Sciences (ISLS)",
+      "ko": "국제학습과학회(ISLS) 재무위원회"
+    }
+  ],
+  "recruitment": {
+    "open": true,
+    "headline": {
+      "en": "Join my research at SKKU.",
+      "ko": "새로운 학습의 가능성을 함께 연구할 학생을 모집합니다."
+    },
+    "intro": {
+      "en": "I welcome inquiries from prospective master’s and doctoral students, as well as undergraduate students interested in research at Sungkyunkwan University.",
+      "ko": "성균관대학교에서 함께 연구할 석사·박사과정 지원자와 연구에 관심 있는 학부생의 연락을 환영합니다."
+    },
+    "interests": {
+      "en": "If you are curious about learning sciences, educational AI, VR/AR, embodied cognition, serious games, or multimodal learning analytics, I would be glad to hear from you.",
+      "ko": "학습과학, 교육용 AI, VR·AR, 체화된 인지, 기능성 게임, 멀티모달 학습분석에 관심 있는 분들을 기다립니다."
+    },
+    "skills": {
+      "en": "Students with backgrounds in education, psychology, design, computer science, or related fields are welcome. Experience with Unity/C#, Python/R, qualitative analysis, or learning design can be helpful, and a willingness to learn matters.",
+      "ko": "교육학, 심리학, 디자인, 컴퓨터과학 등 다양한 배경의 학생을 환영합니다. Unity/C#, Python/R, 질적 분석, 학습설계 경험이 도움이 되며, 새로운 것을 배우려는 자세도 중요하게 생각합니다."
+    },
+    "steps": [
+      {
+        "en": "Introduce yourself and the questions you would like to study.",
+        "ko": "간단한 자기소개와 연구하고 싶은 질문을 알려주세요."
+      },
+      {
+        "en": "Attach a CV or résumé; include a portfolio or writing sample if available.",
+        "ko": "이력서를 첨부하고, 있다면 포트폴리오나 글 샘플도 보내주세요."
+      },
+      {
+        "en": "Mention the degree or research opportunity you are interested in and your preferred start time.",
+        "ko": "희망하는 학위과정 또는 연구 참여 형태와 시작 시기를 알려주세요."
+      }
+    ],
+    "subject": "Prospective student / Research inquiry",
+    "note": {
+      "en": "Please contact me to discuss fit and current opportunities. Graduate admission follows SKKU’s official application process.",
+      "ko": "연구 적합성과 현재 참여 기회는 이메일로 문의해주세요. 대학원 입학은 성균관대학교의 공식 전형 절차를 따릅니다."
+    }
+  },
+  "labels": {
+    "about": {
+      "en": "About",
+      "ko": "소개"
+    },
+    "research": {
+      "en": "Research",
+      "ko": "연구"
+    },
+    "publications": {
+      "en": "Publications",
+      "ko": "논문"
+    },
+    "background": {
+      "en": "Background",
+      "ko": "약력"
+    },
+    "join": {
+      "en": "Join the research",
+      "ko": "학생 모집"
+    },
+    "contact": {
+      "en": "Contact",
+      "ko": "연락처"
+    },
+    "recruiting": {
+      "en": "Recruiting students",
+      "ko": "함께할 학생을 모집합니다"
+    },
+    "scholar": {
+      "en": "Google Scholar",
+      "ko": "Google Scholar"
+    },
+    "interests": {
+      "en": "Research interests",
+      "ko": "연구 관심 분야"
+    },
+    "project_link": {
+      "en": "Explore the project",
+      "ko": "프로젝트 자세히 보기"
+    },
+    "related_work": {
+      "en": "Related work",
+      "ko": "관련 연구"
+    },
+    "selected_publications": {
+      "en": "Selected publications",
+      "ko": "주요 논문"
+    },
+    "publication_intro": {
+      "en": "Journal articles and conference papers on immersive learning, AI, collaboration, and learning analytics. Visit Google Scholar for the broader publication record.",
+      "ko": "몰입형 학습, AI, 협력학습, 학습분석에 관한 학술지 및 학회 논문입니다. 더 넓은 연구 실적은 Google Scholar에서 확인하실 수 있습니다."
+    },
+    "all": {
+      "en": "All",
+      "ko": "전체"
+    },
+    "journals": {
+      "en": "Journal articles",
+      "ko": "학술지 논문"
+    },
+    "conferences": {
+      "en": "Conference papers",
+      "ko": "학회 논문"
+    },
+    "read_paper": {
+      "en": "View publication",
+      "ko": "논문 보기"
+    },
+    "appointments": {
+      "en": "Appointments",
+      "ko": "경력"
+    },
+    "education": {
+      "en": "Education",
+      "ko": "학력"
+    },
+    "service": {
+      "en": "Academic service",
+      "ko": "학술 봉사"
+    },
+    "email_me": {
+      "en": "Email me",
+      "ko": "이메일 보내기"
+    },
+    "student_contact": {
+      "en": "Get in touch",
+      "ko": "연구 참여 문의"
+    },
+    "contact_title": {
+      "en": "Start a conversation.",
+      "ko": "함께 이야기 나눠요."
+    },
+    "contact_text": {
+      "en": "For research collaborations, student inquiries, and conversations about immersive and AI-supported learning.",
+      "ko": "연구 협력, 학생 연구 참여, 몰입형·AI 지원 학습에 관한 다양한 제안을 환영합니다."
+    },
+    "faculty_profile": {
+      "en": "SKKU faculty profile",
+      "ko": "성균관대학교 교수 소개"
+    },
+    "skip": {
+      "en": "Skip to main content",
+      "ko": "본문 바로가기"
+    },
+    "menu": {
+      "en": "Open navigation",
+      "ko": "메뉴 열기"
+    }
+  }
+};
