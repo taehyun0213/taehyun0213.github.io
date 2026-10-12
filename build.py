@@ -88,15 +88,22 @@ def render(data, lang):
     tags = lambda values: '<ul class="tags">' + "".join(f'<li>{E(v)}</li>' for v in values) + '</ul>'
     projects = "".join(f'''<article class="project-card"><p class="eyebrow">{E(t(item["category"]))}</p><h3>{E(t(item["name"]))}</h3><p>{E(t(item["text"]))}</p>{tags(item["tags"])}{external(item["url"],label("project_link"),"text-link") if item["url"] else ''}</article>''' for item in data["projects"])
     pubs = ""
+    award_labels = {
+        "Best Paper Nominee": {"en": "Best Paper Nominee", "ko": "최우수 논문상 후보"},
+        "Best Extended Abstract Nominee": {"en": "Best Extended Abstract Nominee", "ko": "최우수 확장초록상 후보"},
+    }
+    trophy = '<svg class="award-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z"/><path d="M8 5H4v2a4 4 0 0 0 4 4M16 5h4v2a4 4 0 0 1-4 4M12 12v5M8 21h8M9 17h6v4H9z"/></svg>'
     for pub in sorted(data["publications"], key=lambda item: item["year"], reverse=True):
         authors = E(pub["authors"]).replace("Kim, T.", "<strong>Kim, T.</strong>")
         kind = label("journals") if pub["type"] == "journal" else label("conferences")
         note = pub.get("note", "")
+        award = pub["type"] == "conference" and note.strip() in award_labels
+        if award:
+            note = t(award_labels[note.strip()])
         if lang == "ko" and note.startswith("First published online in "):
             note = note.rsplit(" ", 1)[1] + "년 온라인 선출판"
-        if lang == "ko" and note == "Best Extended Abstract Nominee":
-            note = "최우수 확장초록 후보"
-        pubs += f'''<article class="publication" data-type="{E(pub["type"])}"><div class="pub-meta"><span class="pub-year">{pub["year"]}</span><span>{kind}</span></div><div class="pub-detail"><h3>{external(pub["url"],E(pub["title"]))}</h3><p class="authors">{authors}</p><p class="venue">{E(pub["venue"])}</p>{f'<p class="pub-note">{E(note)}</p>' if note else ''}</div>{external(pub["url"],label("read_paper"),"pub-link")}</article>'''
+        note_html = f'<p class="pub-note pub-award">{trophy}<span>{E(note)}</span></p>' if award else (f'<p class="pub-note">{E(note)}</p>' if note else '')
+        pubs += f'''<article class="publication" data-type="{E(pub["type"])}"><div class="pub-meta"><span class="pub-year">{pub["year"]}</span><span>{kind}</span></div><div class="pub-detail"><h3>{external(pub["url"],E(pub["title"]))}</h3><p class="authors">{authors}</p><p class="venue">{E(pub["venue"])}</p>{note_html}</div>{external(pub["url"],label("read_paper"),"pub-link")}</article>'''
     def timeline(items):
         return '<ol class="timeline">'+"".join(f'<li><span class="timeline-date">{E(item["date"].replace("present", "현재") if lang == "ko" else item["date"])}</span><div><h4>{E(t(item["title"]))}</h4><p>{E(t(item["place"]))}</p></div></li>' for item in items)+'</ol>'
     service = "".join(f'<li>{E(t(item))}</li>' for item in data["service"])
