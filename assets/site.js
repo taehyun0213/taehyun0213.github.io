@@ -22,14 +22,9 @@
         pub.hidden = button.dataset.filter !== 'all' && pub.dataset.type !== button.dataset.filter;
         if(!pub.hidden) count++;
       });
-      document.getElementById('publication-count').textContent = document.documentElement.lang === 'ko' ? `${count}개 논문 표시` : `${count} publications shown`;
+      document.getElementById('publication-count').textContent = `${count} publications shown`;
     }));
   }
-  document.querySelectorAll('.language-switch a, footer a[lang]').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.location.hash) link.hash = window.location.hash;
-    });
-  });
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
