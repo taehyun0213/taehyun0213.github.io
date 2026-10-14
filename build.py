@@ -137,7 +137,7 @@ def render(data, lang):
   <link rel="alternate" hreflang="en" href="{SITE_URL}/">
   <link rel="alternate" hreflang="ko" href="{SITE_URL}/ko/">
   <link rel="alternate" hreflang="x-default" href="{SITE_URL}/">
-  <link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{root}assets/research-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{root}assets/styles.css">
   <script type="application/ld+json">{schema_json}</script>
   <script src="{root}assets/site.js" defer></script>
@@ -145,7 +145,7 @@ def render(data, lang):
 <body>
   <a class="skip-link" href="#main">{label('skip')}</a>
   <header class="site-header"><div class="container header-inner">
-    <a class="brand" href="#"><span class="monogram" aria-hidden="true">tk.</span><span>{E(p['name'])}<small>{E(p['korean_name'])}</small></span></a>
+    <a class="brand" href="#"><img class="brand-mark" src="{root}assets/research-mark.svg" alt="" aria-hidden="true" width="44" height="44"><span>{E(p['name'])}<small>{E(p['korean_name'])}</small></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="{label('menu')}"><span></span><span></span></button>
     <nav id="site-nav" aria-label="{'주 메뉴' if lang == 'ko' else 'Main navigation'}">{nav}</nav>
     <div class="language-switch" aria-label="{'언어 선택' if lang == 'ko' else 'Language'}"><a href="{root}index.html" lang="en" {'aria-current="page"' if lang == 'en' else ''}>EN</a><a href="{root}ko/index.html" lang="ko" {'aria-current="page"' if lang == 'ko' else ''}>한국어</a></div>
