@@ -1,4 +1,4 @@
-"""Build an accessible bilingual static homepage. Python standard library only."""
+"""Build an accessible English static homepage. Python standard library only."""
 import argparse
 import html
 import json
@@ -42,7 +42,7 @@ def validate(data):
                 check(item, expected[0], f"{path}[{index}]")
         elif type(value) is not expected:
             raise ValueError(f"Expected {expected.__name__}: {path}")
-        elif expected is str and not value.strip() and not (path.endswith('.note') or (path.startswith('content.projects[') and path.endswith('.url'))):
+        elif expected is str and not value.strip() and not (path.endswith('.ko') or path.endswith('.note') or (path.startswith('content.projects[') and path.endswith('.url'))):
             raise ValueError(f"Text is required: {path}")
     check(data, schema, "content")
     required = {"profile", "research", "featured_project", "projects", "publications", "appointments", "education", "service", "recruitment", "labels"}
@@ -74,10 +74,11 @@ def validate(data):
             raise ValueError(f"Image must exist inside assets/: {path}")
 
 
-def render(data, lang):
+def render(data, lang="en"):
+    if lang != "en":
+        raise ValueError("Only the English homepage is published")
     p, f = data["profile"], data["featured_project"]
     root = "../" if lang == "ko" else "./"
-    other = "../index.html" if lang == "ko" else "ko/index.html"
     t = lambda value: value[lang] if isinstance(value, dict) else value
     label = lambda key: E(t(data["labels"][key]))
     external = lambda url, text, cls="": f'<a class="{cls}" href="{E(url)}" target="_blank" rel="noopener noreferrer">{text}</a>'
@@ -134,9 +135,6 @@ def render(data, lang):
   <meta property="og:image:alt" content="{E(p['name'])}">
   <meta property="og:locale" content="{'ko_KR' if lang == 'ko' else 'en_US'}">
   <link rel="canonical" href="{E(canonical)}">
-  <link rel="alternate" hreflang="en" href="{SITE_URL}/">
-  <link rel="alternate" hreflang="ko" href="{SITE_URL}/ko/">
-  <link rel="alternate" hreflang="x-default" href="{SITE_URL}/">
   <link rel="icon" href="{root}assets/research-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{root}assets/styles.css">
   <script type="application/ld+json">{schema_json}</script>
@@ -148,7 +146,6 @@ def render(data, lang):
     <a class="brand" href="#"><img class="brand-mark" src="{root}assets/research-mark.svg" alt="" aria-hidden="true" width="44" height="44"><span>{E(p['name'])}<small>{E(p['korean_name'])}</small></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="{label('menu')}"><span></span><span></span></button>
     <nav id="site-nav" aria-label="{'주 메뉴' if lang == 'ko' else 'Main navigation'}">{nav}</nav>
-    <div class="language-switch" aria-label="{'언어 선택' if lang == 'ko' else 'Language'}"><a href="{root}index.html" lang="en" {'aria-current="page"' if lang == 'en' else ''}>EN</a><a href="{root}ko/index.html" lang="ko" {'aria-current="page"' if lang == 'ko' else ''}>한국어</a></div>
   </div></header>
   <main id="main">
     <section class="hero container">
@@ -166,9 +163,19 @@ def render(data, lang):
     <section id="join" class="section container"><div class="join-panel"><div><p class="section-index">05 / {label('join')}</p>{f'<p class="open-label">{label("recruiting")}</p>' if r['open'] else ''}<h2>{E(t(r['headline']))}</h2><p>{E(t(r['intro']))}</p><p>{E(t(r['interests']))}</p><p>{E(t(r['skills']))}</p></div><div class="join-instructions"><h3>{'When you write' if lang == 'en' else '문의하실 때'}</h3><ol>{steps}</ol><a class="button light" href="{E(student_mail)}">{label('student_contact')}</a><p class="join-note">{E(t(r['note']))}</p></div></div></section>
     <section id="contact" class="container contact-section"><div><p class="section-index">06 / {label('contact')}</p><h2>{label('contact_title')}</h2><p>{label('contact_text')}</p></div><div class="contact-links"><a class="contact-email" href="{E(mail)}">{E(p['email'])}</a><div>{external(p['scholar'],label('scholar'),'text-link')}{external(p['faculty'],label('faculty_profile'),'text-link')}</div><p>{E(t(p['department']))} · {E(t(p['university']))}<br>{E(t(p['location']))}</p></div></section>
   </main>
-  <footer class="container"><span>© {E(p['name'])}</span><span>{E(t(p['university']))}</span><a href="{other}" lang="{'en' if lang == 'ko' else 'ko'}">{'English' if lang == 'ko' else '한국어'}</a></footer>
+  <footer class="container"><span>© {E(p['name'])}</span><span>{E(t(p['university']))}</span></footer>
 </body>
 </html>
+'''
+
+
+def legacy_redirect():
+    return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page moved | Taehyun Kim</title><meta name="robots" content="noindex">
+<link rel="canonical" href="{SITE_URL}/"><meta http-equiv="refresh" content="0;url={SITE_URL}/">
+<script>window.location.replace("{SITE_URL}/" + window.location.search + window.location.hash);</script>
+</head><body><p>This page has moved. <a href="{SITE_URL}/">Visit the English homepage.</a></p></body></html>
 '''
 
 
@@ -177,7 +184,7 @@ def build(output=None):
     validate(data)
     (ROOT / "ko").mkdir(exist_ok=True)
     (ROOT / "index.html").write_text(render(data, "en"), encoding="utf-8")
-    (ROOT / "ko/index.html").write_text(render(data, "ko"), encoding="utf-8")
+    (ROOT / "ko/index.html").write_text(legacy_redirect(), encoding="utf-8")
     (ROOT / "assets/content.js").write_text("window.SITE_CONTENT = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n", encoding="utf-8")
     if output:
         dest = Path(output).resolve()
@@ -185,10 +192,13 @@ def build(output=None):
             raise ValueError("Output directory must not replace or contain the project")
         dest.mkdir(parents=True, exist_ok=True)
         shutil.copytree(ROOT / "assets", dest / "assets", dirs_exist_ok=True)
-        shutil.copytree(ROOT / "ko", dest / "ko", dirs_exist_ok=True)
+        if (dest / "ko").exists():
+            shutil.rmtree(dest / "ko")
+        (dest / "ko").mkdir()
+        shutil.copy2(ROOT / "ko/index.html", dest / "ko/index.html")
         for file in ("index.html", "edit.html", "404.html", ".nojekyll"):
             shutil.copy2(ROOT / file, dest / file)
-    print(f"Built English and Korean pages, {len(data['publications'])} publications. " + (f"Public output: {output}" if output else ""))
+    print(f"Built English homepage, {len(data['publications'])} publications. " + (f"Public output: {output}" if output else ""))
 
 
 if __name__ == "__main__":

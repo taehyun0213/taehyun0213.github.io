@@ -11,10 +11,10 @@
   <script src="assets/editor.js" defer></script>
 </head>
 <body>
-  <header class="editor-header"><div><a class="brand" href="index.html">tk.</a><div><h1>홈페이지 내용 편집</h1><p>Taehyun Kim · English / 한국어</p></div></div><a href="index.html" target="_blank" rel="noopener noreferrer">현재 홈페이지 보기</a></header>
+  <header class="editor-header"><div><a class="brand" href="index.html">tk.</a><div><h1>홈페이지 내용 편집</h1><p>Taehyun Kim · English 홈페이지</p></div></div><a href="index.html" target="_blank" rel="noopener noreferrer">현재 홈페이지 보기</a></header>
   <a class="skip-link" href="#content-form">내용 편집으로 건너뛰기</a>
   <main>
-    <aside class="instructions"><h2>수정 → 다운로드 → 반영</h2><p>영어·한국어 내용을 아래에서 수정한 뒤 <strong>content.json 다운로드</strong>를 누르세요. <a href="https://github.com/taehyun0213/taehyun0213.github.io/upload/main" target="_blank" rel="noopener noreferrer">GitHub 저장소</a>의 기존 <strong>content.json</strong>을 이 파일로 교체하고 변경사항을 저장하면 GitHub 홈페이지가 자동으로 갱신됩니다. 현재 홈페이지에 반영하려면 다운로드한 파일을 이 대화에 첨부하여 수정을 요청할 수도 있습니다.</p><p>이 화면은 수정할 파일을 만드는 도구입니다. 다운로드만으로 공개 홈페이지가 변경되지는 않습니다. 정상 형식의 수정 내용은 이 브라우저에 임시 보관됩니다. 오류가 있는 입력은 화면에 남으며, 마지막 정상 임시 파일은 유지됩니다.</p></aside>
+    <aside class="instructions"><h2>수정 → 다운로드 → 반영</h2><p>영문 홈페이지 내용을 아래에서 수정한 뒤 <strong>content.json 다운로드</strong>를 누르세요. <a href="https://github.com/taehyun0213/taehyun0213.github.io/upload/main" target="_blank" rel="noopener noreferrer">GitHub 저장소</a>의 기존 <strong>content.json</strong>을 이 파일로 교체하고 변경사항을 저장하면 GitHub 홈페이지가 자동으로 갱신됩니다. 현재 홈페이지에 반영하려면 다운로드한 파일을 이 대화에 첨부하여 수정을 요청할 수도 있습니다.</p><p>이 화면은 수정할 파일을 만드는 도구입니다. 다운로드만으로 공개 홈페이지가 변경되지는 않습니다. 정상 형식의 수정 내용은 이 브라우저에 임시 보관됩니다. 오류가 있는 입력은 화면에 남으며, 마지막 정상 임시 파일은 유지됩니다.</p></aside>
     <div class="editor-toolbar"><label class="import-button">content.json 불러오기<input id="import-file" type="file" accept=".json,application/json"></label><button id="download" class="primary" type="button">content.json 다운로드</button><button id="reset" type="button">현재 공개 내용으로 되돌리기</button><span id="status" role="status" aria-live="polite" aria-atomic="true"></span></div>
     <div class="editor-layout"><nav id="tabs" aria-label="편집할 내용"></nav><section class="editor-section"><h2 id="section-title"></h2><p id="section-help"></p><form id="content-form" autocomplete="off" tabindex="-1"></form></section></div>
     <noscript>편집 화면에는 JavaScript가 필요합니다. content.json 파일을 직접 수정하는 방법은 README.md를 참고하세요.</noscript>
