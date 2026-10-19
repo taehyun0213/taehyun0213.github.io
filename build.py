@@ -45,6 +45,8 @@ def validate(data):
         elif expected is str and not value.strip() and not (path.endswith('.ko') or path.endswith('.note') or (path.startswith('content.projects[') and path.endswith('.url'))):
             raise ValueError(f"Text is required: {path}")
     check(data, schema, "content")
+    if "secondary_affiliation" in data["profile"]:
+        check(data["profile"]["secondary_affiliation"], {"role": bilingual, "university": bilingual}, "content.profile.secondary_affiliation")
     required = {"profile", "research", "featured_project", "projects", "publications", "appointments", "education", "service", "recruitment", "labels"}
     if not required.issubset(data):
         raise ValueError("Missing sections: " + ", ".join(sorted(required - data.keys())))
@@ -84,6 +86,8 @@ def render(data, lang="en"):
     external = lambda url, text, cls="": f'<a class="{cls}" href="{E(url)}" target="_blank" rel="noopener noreferrer">{text}</a>'
     nav = "".join(f'<a href="#{key}">{label(key)}</a>' for key in ("about", "research", "publications", "join", "contact"))
     name = p["korean_name"] if lang == "ko" else p["name"]
+    secondary = p.get("secondary_affiliation")
+    secondary_html = f'<div class="secondary-affiliation"><span class="secondary-role">{E(t(secondary["role"]))}</span><span class="secondary-university">{E(t(secondary["university"]))}</span></div>' if secondary else ''
     bio = "".join(f'<p>{E(t(paragraph))}</p>' for paragraph in p["bio"])
     topics = "".join(f'<article class="topic"><span class="topic-number">0{i+1}</span><h3>{E(t(item["title"]))}</h3><p>{E(t(item["text"]))}</p></article>' for i,item in enumerate(data["research"]))
     tags = lambda values: '<ul class="tags">' + "".join(f'<li>{E(v)}</li>' for v in values) + '</ul>'
@@ -150,7 +154,7 @@ def render(data, lang="en"):
   <main id="main">
     <section class="hero container">
       <div class="hero-copy"><p class="eyebrow">{'LEARNING SCIENCES · EDUCATIONAL TECHNOLOGY' if lang == 'en' else '학습과학 · 교육공학'}</p><h1>{E(t(p['headline']))}</h1><p class="hero-intro">{E(t(p['intro']))}</p><div class="hero-actions"><a class="button primary" href="#research">{label('research')}</a>{external(p['scholar'],label('scholar'),'button secondary')}</div>{recruit_badge}</div>
-      <aside class="profile-panel"><div class="portrait-frame"><img src="{root}{E(p['portrait'])}" alt="{E(p['name'])}" width="215" height="215" fetchpriority="high"></div><h2>{E(name)}</h2><p class="profile-role">{E(t(p['role']))}</p><p>{E(t(p['department']))}<br>{E(t(p['university']))}<img class="university-logo" src="{root}assets/skku-logo.png" alt="{E(t(p['university']))} {'로고' if lang == 'ko' else 'logo'}" width="206" height="46"></p><div class="profile-location">{E(t(p['location']))}</div><a class="profile-email" href="{E(mail)}">{E(p['email'])}</a></aside>
+      <aside class="profile-panel"><div class="portrait-frame"><img src="{root}{E(p['portrait'])}" alt="{E(p['name'])}" width="215" height="215" fetchpriority="high"></div><h2>{E(name)}</h2><p class="profile-role">{E(t(p['role']))}</p><p>{E(t(p['department']))}<br>{E(t(p['university']))}<img class="university-logo" src="{root}assets/skku-logo.png" alt="{E(t(p['university']))} {'로고' if lang == 'ko' else 'logo'}" width="206" height="46"></p>{secondary_html}<div class="profile-location">{E(t(p['location']))}</div><a class="profile-email" href="{E(mail)}">{E(p['email'])}</a></aside>
     </section>
     <div class="research-strip"><div class="container"><span>{'Embodied cognition' if lang == 'en' else '체화된 인지'}</span><span>{'Immersive learning' if lang == 'en' else '몰입형 학습'}</span><span>{'AI in education' if lang == 'en' else '교육용 AI'}</span><span>{'Multimodal analytics' if lang == 'en' else '멀티모달 분석'}</span></div></div>
     <section id="about" class="section container about-grid"><div class="section-heading"><p class="section-index">01 / {label('about')}</p><h2>{'Designing learning.<br>Understanding learners.' if lang == 'en' else '학습을 설계하고,<br>학습자를 이해합니다.'}</h2></div><div class="prose">{bio}</div></section>

@@ -18,6 +18,16 @@
       "en": "Sungkyunkwan University",
       "ko": "성균관대학교"
     },
+    "secondary_affiliation": {
+      "role": {
+        "en": "Adjunct Professor",
+        "ko": "겸임교수"
+      },
+      "university": {
+        "en": "Utah State University",
+        "ko": "유타주립대학교"
+      }
+    },
     "location": {
       "en": "Seoul, South Korea",
       "ko": "대한민국 서울"
