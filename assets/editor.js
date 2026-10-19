@@ -6,12 +6,18 @@
   let data = clone(original), active = 'profile', dirty = false;
   const form = document.querySelector('#content-form'), status = document.querySelector('#status');
   const sections = {profile:'소개 · 연락처',research:'연구 관심 분야',featured_project:'ChromosoME',projects:'연구 프로젝트',publications:'논문 목록',appointments:'경력',education:'학력',service:'학술 봉사',recruitment:'학생 모집',labels:'메뉴 · 공통 문구'};
-  const labels = {name:'이름 / 프로젝트명',korean_name:'한글 이름',email:'이메일',scholar:'Google Scholar 주소',faculty:'성균관대 교수 소개 주소',portrait:'프로필 사진 경로',role:'직책 / 프로젝트 역할',department:'학과',university:'대학교',location:'지역',headline:'큰 제목',intro:'소개 문구',bio:'소개 본문',title:'제목',text:'설명',eyebrow:'짧은 분류',extension:'진행 중인 확장 연구',image:'이미지 경로',image_alt:'이미지 대체 설명',credit:'이미지 출처',url:'논문 / 프로젝트 주소',tags:'키워드',category:'분류',year:'출판 연도',type:'논문 유형',authors:'저자',venue:'학술지 / 학회 · 권호 · 페이지',note:'비고',date:'기간 / 연도',place:'기관 / 소속',open:'학생 모집 표시',interests:'관심 분야 안내',skills:'배경 / 경험 안내',steps:'연락할 때 포함할 내용',subject:'문의 이메일 제목',en:'English',ko:'한국어'};
+  const labels = {name:'이름 / 프로젝트명',korean_name:'한글 이름',email:'이메일',scholar:'Google Scholar 주소',faculty:'성균관대 교수 소개 주소',portrait:'프로필 사진 경로',role:'직책 / 프로젝트 역할',department:'학과',university:'대학교',secondary_affiliation:'추가 소속',location:'지역',headline:'큰 제목',intro:'소개 문구',bio:'소개 본문',title:'제목',text:'설명',eyebrow:'짧은 분류',extension:'진행 중인 확장 연구',image:'이미지 경로',image_alt:'이미지 대체 설명',credit:'이미지 출처',url:'논문 / 프로젝트 주소',tags:'키워드',category:'분류',year:'출판 연도',type:'논문 유형',authors:'저자',venue:'학술지 / 학회 · 권호 · 페이지',note:'비고',date:'기간 / 연도',place:'기관 / 소속',open:'학생 모집 표시',interests:'관심 분야 안내',skills:'배경 / 경험 안내',steps:'연락할 때 포함할 내용',subject:'문의 이메일 제목',en:'English',ko:'한국어'};
   const helps = {profile:'영문 홈페이지에 표시할 내용을 수정하세요. 사진은 assets/taehyun-kim.png 파일을 교체하면 됩니다.',publications:'논문 유형은 journal(학술지) 또는 conference(학회)입니다. 저자명과 논문 제목은 원문 표기를 유지하세요.',recruitment:'학생 모집 표시를 끄면 모집 배지가 사라집니다. 본문에서 연구 참여 안내는 계속 표시됩니다.',labels:'방문자 화면의 메뉴, 버튼, 공통 문구를 수정할 수 있습니다.'};
   const bilingualSample={en:'',ko:''};
   const timelineSample={date:'',title:bilingualSample,place:bilingualSample};
   const arraySamples={research:{title:bilingualSample,text:bilingualSample},projects:{name:bilingualSample,category:bilingualSample,text:bilingualSample,tags:[''],url:''},publications:{year:new Date().getFullYear(),type:'conference',title:'',authors:'',venue:'',url:'',note:''},appointments:timelineSample,education:timelineSample,service:bilingualSample,bio:bilingualSample,steps:bilingualSample,tags:''};
   function arraySample(sample,path) {return sample.length?sample[0]:arraySamples[path.at(-1)];}
+  function withOptionalProfileFields(value) {
+    if (value?.profile && typeof value.profile === 'object' && !Array.isArray(value.profile) && !Object.hasOwn(value.profile, 'secondary_affiliation') && original.profile.secondary_affiliation) {
+      value.profile.secondary_affiliation = clone(original.profile.secondary_affiliation);
+    }
+    return value;
+  }
   function fieldName(path) {return path.length ? path.map(key => typeof key==='number' ? `${key+1}번째 항목` : sections[key]||labels[key]||key).join(' → ') : 'content.json';}
   function fail(path,message) {const error=new Error(`${fieldName(path)}: ${message}`);error.path=path;throw error;}
   function validate(value,sample=original,path=[]) {
@@ -100,14 +106,14 @@
     return inputField(value,path,key);
   }
   function renderSection() {document.querySelector('#section-title').textContent=sections[active];document.querySelector('#section-help').textContent=helps[active]||'각 항목의 영문 내용을 수정하고, 수정 파일을 다운로드하세요.';form.replaceChildren(renderValue(data[active],[active],active));document.querySelectorAll('#tabs button').forEach(button=>{if(button.dataset.section===active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');});try{validate(data);}catch(error){markInvalid(error);}}
-  try {const draft=localStorage.getItem(storageKey);if(draft){const parsed=JSON.parse(draft);validate(parsed);data=parsed;dirty=true;report('이 브라우저의 임시 수정 내용을 불러왔습니다.');}}catch(error){report(`임시 파일을 불러오지 못해 현재 공개 내용으로 시작합니다. ${error instanceof SyntaxError?'JSON 형식을 확인하세요.':error.message}`,true);}
+  try {const draft=localStorage.getItem(storageKey);if(draft){const parsed=withOptionalProfileFields(JSON.parse(draft));validate(parsed);data=parsed;dirty=true;report('이 브라우저의 임시 수정 내용을 불러왔습니다.');}}catch(error){report(`임시 파일을 불러오지 못해 현재 공개 내용으로 시작합니다. ${error instanceof SyntaxError?'JSON 형식을 확인하세요.':error.message}`,true);}
   Object.entries(sections).forEach(([key,label])=>{const button=element('button',label);button.type='button';button.dataset.section=key;button.addEventListener('click',()=>{active=key;renderSection();});document.querySelector('#tabs').append(button);});
   form.addEventListener('submit',e=>e.preventDefault());
   document.querySelector('#download').addEventListener('click',()=>{
     try{validate(data);}catch(error){if(Object.hasOwn(sections,error.path?.[0])){active=error.path[0];renderSection();}report(`다운로드할 수 없습니다. ${error.message}`,true);focusControl(markInvalid(error));return;}
     const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=element('a');a.href=url;a.download='content.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);dirty=false;report('content.json 다운로드 완료 · GitHub의 같은 파일을 교체하거나 이 대화에 첨부하여 반영을 요청하세요.');
   });
-  document.querySelector('#import-file').addEventListener('change',async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>5*1024*1024)throw new Error('5MB 이하의 content.json 파일을 선택하세요.');const value=JSON.parse(await file.text());validate(value);data=value;saveDraft();renderSection();report('파일을 불러왔습니다. 수정 후 다운로드하세요.');}catch(error){report(`파일을 불러오지 못했습니다. ${error instanceof SyntaxError?'JSON 문법과 쉼표를 확인하세요.':error.message} 현재 수정 내용은 유지됩니다.`,true);}finally{e.target.value='';}});
+  document.querySelector('#import-file').addEventListener('change',async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>5*1024*1024)throw new Error('5MB 이하의 content.json 파일을 선택하세요.');const value=withOptionalProfileFields(JSON.parse(await file.text()));validate(value);data=value;saveDraft();renderSection();report('파일을 불러왔습니다. 수정 후 다운로드하세요.');}catch(error){report(`파일을 불러오지 못했습니다. ${error instanceof SyntaxError?'JSON 문법과 쉼표를 확인하세요.':error.message} 현재 수정 내용은 유지됩니다.`,true);}finally{e.target.value='';}});
   document.querySelector('#reset').addEventListener('click',()=>{if(!confirm('이 브라우저의 수정 내용을 지우고 현재 공개 내용으로 되돌릴까요?'))return;data=clone(original);dirty=false;try{localStorage.removeItem(storageKey);}catch{}renderSection();report('현재 공개 내용으로 되돌렸습니다.');});
   window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
   renderSection();
