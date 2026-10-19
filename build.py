@@ -1,5 +1,6 @@
 """Build an accessible English static homepage. Python standard library only."""
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -123,6 +124,7 @@ def render(data, lang="en"):
     title = f'{name} | {t(p["university"])}'
     canonical = SITE_URL + ("/ko/" if lang == "ko" else "/")
     og_image = SITE_URL + "/" + p["portrait"]
+    style_version = hashlib.sha256((ROOT / "assets/styles.css").read_bytes()).hexdigest()[:12]
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
@@ -140,7 +142,7 @@ def render(data, lang="en"):
   <meta property="og:locale" content="{'ko_KR' if lang == 'ko' else 'en_US'}">
   <link rel="canonical" href="{E(canonical)}">
   <link rel="icon" href="{root}assets/research-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{root}assets/styles.css">
+  <link rel="stylesheet" href="{root}assets/styles.css?v={style_version}">
   <script type="application/ld+json">{schema_json}</script>
   <script src="{root}assets/site.js" defer></script>
 </head>
